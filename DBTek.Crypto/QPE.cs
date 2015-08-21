@@ -7,7 +7,7 @@ namespace DBTek.Crypto
     /// <summary>
     /// QuotedPrintable encoder implementation
     /// </summary>
-    public class QuotedPrintable : iEncoder
+    public class QuotedPrintable : IEncoder
     {
 
         #region Strings
@@ -22,7 +22,7 @@ namespace DBTek.Crypto
             if (!string.IsNullOrWhiteSpace(sourceString))
             {
                 string str = "";
-                List<string> Coded = EncodeBytes(Array.ConvertAll<char, byte>(sourceString.ToCharArray(), new Converter<char, byte>(Convert.ToByte)));
+                var Coded = EncodeBytes(Array.ConvertAll<char, byte>(sourceString.ToCharArray(), new Converter<char, byte>(Convert.ToByte)));
 
                 for (int i = 0; i < Coded.Count; i++)
                 {
@@ -53,7 +53,7 @@ namespace DBTek.Crypto
                 {
                     char dec = chars[i];
 
-                    if (dec == 61) //CompareTo("=")
+                    if (dec == 61)
                     {
                         string hex = sourceString.Substring(i + 1, 2);
                         dec = Convert.ToChar(Byte.Parse(hex, System.Globalization.NumberStyles.AllowHexSpecifier));
@@ -84,7 +84,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             byte[] binput = File.ReadAllBytes(sourceFile);
             TextWriter tw = new StreamWriter(destFile);
@@ -104,7 +104,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             string[] input = File.ReadAllLines(sourceFile);
             FileStream fs = new FileStream(destFile, FileMode.Create);
@@ -145,12 +145,12 @@ namespace DBTek.Crypto
 
         #region Utils
 
-        private List<string> EncodeBytes(byte[] stringa)
+        private List<string> EncodeBytes(byte[] sourceString)
         {
             string returnStr = "";
             List<string> retList = new List<string>();
 
-            for (int i = 0; i < stringa.Length; i++)
+            for (int i = 0; i < sourceString.Length; i++)
             {
                 if (returnStr.Length > 72)
                 {
@@ -159,11 +159,11 @@ namespace DBTek.Crypto
                     returnStr = "";
                 }
 
-                byte b = stringa[i];
+                byte b = sourceString[i];
 
                 if (b < 32 || b == 61 || b > 126)
                 {
-                    if (b == 13 && i < stringa.Length - 1 && stringa[i + 1] == 10)
+                    if (b == 13 && i < sourceString.Length - 1 && sourceString[i + 1] == 10)
                     {
                         if (returnStr.EndsWith(" "))
                             returnStr = returnStr.Remove(returnStr.Length - 1) + "=20";

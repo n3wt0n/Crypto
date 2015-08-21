@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DBTek.Crypto
 {
     /// <summary>
     /// MD5 hasher implementation
     /// </summary>
-    public class MD5_Hsr : DBTek.Crypto.iHasher
+    public class MD5_Hsr : IHasher
     {
 
         #region Strings

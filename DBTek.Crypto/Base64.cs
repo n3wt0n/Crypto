@@ -6,7 +6,7 @@ namespace DBTek.Crypto
     /// <summary>
     /// Base64 encoder implementation
     /// </summary>
-    public class Base64 : iEncoder
+    public class Base64 : IEncoder
     {
 
         #region Strings
@@ -58,7 +58,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             using (var fs = new BufferedStream(File.OpenRead(sourceFile), 1200000))
             {
@@ -80,7 +80,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             string input = File.ReadAllText(sourceFile);
             byte[] filebytes = Convert.FromBase64String(input);

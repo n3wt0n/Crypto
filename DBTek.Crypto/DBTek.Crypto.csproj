@@ -72,8 +72,10 @@
   <ItemGroup>
     <Compile Include="Base64.cs" />
     <Compile Include="CRC32.cs" />
-    <Compile Include="Encoder.cs" />
+    <Compile Include="ClearData.cs" />
     <Compile Include="HMACMD5.cs" />
+    <Compile Include="IEncoder.cs" />
+    <Compile Include="IHasher.cs" />
     <Compile Include="MD5.cs" />
     <Compile Include="QPE.cs" />
     <Compile Include="Rijndael.cs" />

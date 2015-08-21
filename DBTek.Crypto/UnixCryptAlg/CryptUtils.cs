@@ -20,10 +20,8 @@ namespace DBTek.Crypto.UnixCryptAlg
             var sh = new SplittedHash();
 
             var ret = str.Split(new char[] { '$' }, 4, StringSplitOptions.RemoveEmptyEntries);
-            if (ret.Length < 3)
-            {
-                throw new ArgumentException("Invalid MCF string");
-            }
+            if (ret.Length < 3)            
+                throw new ArgumentException("Invalid MCF string");            
 
             sh.Protocol = ret[0];
 
@@ -44,12 +42,10 @@ namespace DBTek.Crypto.UnixCryptAlg
 
         public string GetFullSalt()
         {
-            if (string.IsNullOrEmpty(Rounds))
-            {
-                return string.Format("${0}${1}", Protocol, Salt);
-            }
-
-            return string.Format("${0}${1}${2}", Protocol, Rounds, Salt);
+            if (string.IsNullOrEmpty(Rounds))            
+                return $"${Protocol}${Salt}";            
+            
+            return $"${Protocol}${Rounds}${Salt}";
         }
     }
 
@@ -67,22 +63,16 @@ namespace DBTek.Crypto.UnixCryptAlg
             var saltPtr = new ArrayPointer<byte>(Encoding.UTF8.GetBytes(salt + "\0"));
 
             /* Try to find out whether we have to use MD5 encryption replacement.  */
-            if (CryptImpl.strncmp(CryptImpl.md5_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.md5_salt_prefix)) == 0)
-            {
-                return CryptImpl.CryptMd5(keyPtr, saltPtr);
-            }
+            if (CryptImpl.strncmp(CryptImpl.md5_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.md5_salt_prefix)) == 0)            
+                return CryptImpl.CryptMd5(keyPtr, saltPtr);            
 
             /* Try to find out whether we have to use SHA256 encryption replacement.  */
-            if (CryptImpl.strncmp(CryptImpl.sha256_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.sha256_salt_prefix)) == 0)
-            {
-                return CryptImpl.CryptSha256(keyPtr, saltPtr);
-            }
+            if (CryptImpl.strncmp(CryptImpl.sha256_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.sha256_salt_prefix)) == 0)            
+                return CryptImpl.CryptSha256(keyPtr, saltPtr);            
 
             /* Try to find out whether we have to use SHA512 encryption replacement.  */
-            if (CryptImpl.strncmp(CryptImpl.sha512_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.sha512_salt_prefix)) == 0)
-            {
-                return CryptImpl.CryptSha512(keyPtr, saltPtr);
-            }
+            if (CryptImpl.strncmp(CryptImpl.sha512_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.sha512_salt_prefix)) == 0)            
+                return CryptImpl.CryptSha512(keyPtr, saltPtr);            
 
             throw new ArgumentException("Unsupported algorithm");
         }
@@ -99,9 +89,7 @@ namespace DBTek.Crypto.UnixCryptAlg
         }
 
         public static string MakeSalt()
-        {
-            return MakeSalt(DefaultType);
-        }
+            => MakeSalt(DefaultType);        
 
         private static int GetRounds()
         {
@@ -112,10 +100,8 @@ namespace DBTek.Crypto.UnixCryptAlg
         public static string MakeSalt(string algoType)
         {
             int saltChars = 16;
-            if (algoType == TypeMd5)
-            {
-                saltChars = 8;
-            }
+            if (algoType == TypeMd5)            
+                saltChars = 8;            
 
             // Find out how many random bytes we need for the saltChars as
             // base64 has overhead of 4/3
@@ -128,7 +114,7 @@ namespace DBTek.Crypto.UnixCryptAlg
             var random = new RNGCryptoServiceProvider();
             random.GetNonZeroBytes(randomBytes);
 
-            return string.Format("{0}rounds={1}${2}", algoType, GetRounds(), Convert.ToBase64String(randomBytes));
+            return $"{algoType}rounds={ GetRounds()}${Convert.ToBase64String(randomBytes)}";
         }
     }
 }

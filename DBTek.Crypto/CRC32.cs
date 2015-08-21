@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DBTek.Crypto
 {
     /// <summary>
     /// CRC32 hasher implementation
     /// </summary>
-    public class CRC32_Hsr : iHasher
+    public class CRC32_Hsr : IHasher
     {
 
         #region Strings
@@ -24,7 +23,7 @@ namespace DBTek.Crypto
             if (sourceString != null)
             {
                 byte[] message = Encoding.UTF8.GetBytes(sourceString);
-                SHA1Managed hashString = new SHA1Managed();
+                var hashString = new SHA1Managed();
                 string hex = "";
                 foreach (byte x in HashBytes(message))
                     hex += Convert.ToString(x, 16).PadLeft(2, '0');
@@ -49,7 +48,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             byte[] message = File.ReadAllBytes(sourceFile);
-            SHA1Managed hashString = new SHA1Managed();
+            var hashString = new SHA1Managed();
             string hex = "";
             foreach (byte x in HashBytes(message))
                 hex += Convert.ToString(x, 16).PadLeft(2, '0');
@@ -62,7 +61,7 @@ namespace DBTek.Crypto
 
         private byte[] HashBytes(byte[] input)
         {
-            Crc32 crc = new Crc32();
+            var crc = new Crc32();
             return crc.ComputeHash(input);
         }
 
@@ -91,14 +90,10 @@ namespace DBTek.Crypto
             }
 
             public override void Initialize()
-            {
-                hash = seed;
-            }
+                => hash = seed;
 
             protected override void HashCore(byte[] buffer, int start, int length)
-            {
-                hash = CalculateHash(table, hash, buffer, start, length);
-            }
+                => hash = CalculateHash(table, hash, buffer, start, length);
 
             protected override byte[] HashFinal()
             {
@@ -108,24 +103,16 @@ namespace DBTek.Crypto
             }
 
             public override int HashSize
-            {
-                get { return 32; }
-            }
+                => 32;
 
             public static UInt32 Compute(byte[] buffer)
-            {
-                return ~CalculateHash(InitializeTable(DefaultPolynomial), DefaultSeed, buffer, 0, buffer.Length);
-            }
+                => ~CalculateHash(InitializeTable(DefaultPolynomial), DefaultSeed, buffer, 0, buffer.Length);
 
             public static UInt32 Compute(UInt32 seed, byte[] buffer)
-            {
-                return ~CalculateHash(InitializeTable(DefaultPolynomial), seed, buffer, 0, buffer.Length);
-            }
+                => ~CalculateHash(InitializeTable(DefaultPolynomial), seed, buffer, 0, buffer.Length);
 
             public static UInt32 Compute(UInt32 polynomial, UInt32 seed, byte[] buffer)
-            {
-                return ~CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
-            }
+                => ~CalculateHash(InitializeTable(polynomial), seed, buffer, 0, buffer.Length);
 
             private static UInt32[] InitializeTable(UInt32 polynomial)
             {
@@ -163,24 +150,15 @@ namespace DBTek.Crypto
 
             private byte[] UInt32ToBigEndianBytes(UInt32 x)
             {
-                return new byte[] {
-			    (byte)((x >> 24) & 0xff),
-			    (byte)((x >> 16) & 0xff),
-			    (byte)((x >> 8) & 0xff),
-			    (byte)(x & 0xff)
-		    };
+                return new byte[]
+                {
+                    (byte)((x >> 24) & 0xff),
+                    (byte)((x >> 16) & 0xff),
+                    (byte)((x >> 8) & 0xff),
+                    (byte)(x & 0xff)
+                };
             }
         }
         #endregion
-
-
-
-
-
-
-
     }
-
-
-
 }

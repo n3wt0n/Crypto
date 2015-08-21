@@ -11,8 +11,7 @@ namespace DBTek.Crypto.UnixCryptAlg
     internal class CryptImpl
     {
         /* Table with characters for base64 transformation.  */
-        static char[] b64t =
-            "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".ToCharArray();
+        static char[] b64t = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".ToCharArray();
 
         /* Define our magic string to mark salt for MD5 "encryption"
            replacement.  This is meant to be the same as for other MD5 based
@@ -336,11 +335,8 @@ namespace DBTek.Crypto.UnixCryptAlg
 
             /* Find beginning of salt string.  The prefix should normally always
                be present.  Just in case it is not.  */
-            if (strncmp(sha256_salt_prefix, salt, strlen(sha256_salt_prefix)) == 0)
-            {
-                /* Skip salt prefix.  */
-                salt += strlen(sha256_salt_prefix);
-            }
+            if (strncmp(sha256_salt_prefix, salt, strlen(sha256_salt_prefix)) == 0)            
+                salt += strlen(sha256_salt_prefix); /* Skip salt prefix.  */            
 
             if (strncmp(salt, sha256_rounds_prefix, strlen(sha256_rounds_prefix)) == 0)
             {
@@ -517,10 +513,8 @@ namespace DBTek.Crypto.UnixCryptAlg
             cp = b64_from_24bit(alt_result[9], alt_result[19], alt_result[29], 4, cp, buflen, out buflen);
             cp = b64_from_24bit(0, alt_result[31], alt_result[30], 3, cp, buflen, out buflen);
 
-            if (buflen <= 0)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            if (buflen <= 0)            
+                throw new IndexOutOfRangeException();            
             else
                 cp.Value = 0;        /* Terminate the string.  */
 
@@ -554,9 +548,8 @@ namespace DBTek.Crypto.UnixCryptAlg
 
             /* Find beginning of salt string.  The prefix should normally always
                be present.  Just in case it is not.  */
-            if (strncmp(sha512_salt_prefix, salt, strlen(sha512_salt_prefix)) == 0)
-                /* Skip salt prefix.  */
-                salt += strlen(sha512_salt_prefix);
+            if (strncmp(sha512_salt_prefix, salt, strlen(sha512_salt_prefix)) == 0)                
+                salt += strlen(sha512_salt_prefix); /* Skip salt prefix.  */
 
             if (strncmp(salt, sha512_rounds_prefix, strlen(sha512_rounds_prefix)) == 0)
             {
@@ -744,10 +737,8 @@ namespace DBTek.Crypto.UnixCryptAlg
             cp = b64_from_24bit(alt_result[62], alt_result[20], alt_result[41], 4, cp, buflen, out buflen);
             cp = b64_from_24bit(0, 0, alt_result[63], 2, cp, buflen, out buflen);
 
-            if (buflen <= 0)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            if (buflen <= 0)            
+                throw new IndexOutOfRangeException();            
             else
                 cp.Value = 0;        /* Terminate the string.  */
 
@@ -815,14 +806,10 @@ namespace DBTek.Crypto.UnixCryptAlg
         }
 
         private static void __md5_init_ctx(md5_ctx ctx)
-        {
-            ctx.stream = new MemoryStream();
-        }
+            => ctx.stream = new MemoryStream();        
 
         private static void __md5_process_bytes(ArrayPointer<byte> buffer, int count, md5_ctx ctx)
-        {
-            ctx.stream.Write(buffer.SourceArray, buffer.Address, count);
-        }
+            => ctx.stream.Write(buffer.SourceArray, buffer.Address, count);        
 
         private static void __md5_finish_ctx(md5_ctx ctx, ArrayPointer<byte> buffer)
         {
@@ -839,24 +826,16 @@ namespace DBTek.Crypto.UnixCryptAlg
         }
 
         private static void __sha256_init_ctx(sha256_ctx ctx)
-        {
-            ctx.stream = new MemoryStream();
-        }
+            => ctx.stream = new MemoryStream();        
 
         private static void __sha512_init_ctx(sha512_ctx ctx)
-        {
-            ctx.stream = new MemoryStream();
-        }
+            => ctx.stream = new MemoryStream();        
 
         private static void __sha256_process_bytes(ArrayPointer<byte> buffer, int count, sha256_ctx ctx)
-        {
-            ctx.stream.Write(buffer.SourceArray, buffer.Address, count);
-        }
+            => ctx.stream.Write(buffer.SourceArray, buffer.Address, count);       
 
         private static void __sha512_process_bytes(ArrayPointer<byte> buffer, int count, sha512_ctx ctx)
-        {
-            ctx.stream.Write(buffer.SourceArray, buffer.Address, count);
-        }
+            => ctx.stream.Write(buffer.SourceArray, buffer.Address, count);        
 
         private static void __sha256_finish_ctx(sha256_ctx ctx, ArrayPointer<byte> buffer)
         {

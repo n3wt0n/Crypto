@@ -8,7 +8,7 @@ namespace DBTek.Crypto
     /// <summary>
     /// Rijndael encoder implementation
     /// </summary>
-    public class Rijndael : iEncoder
+    public class Rijndael : IEncoder
     {
        
         #region Config
@@ -26,9 +26,7 @@ namespace DBTek.Crypto
         /// <param name="sourceString">The string to encode</param>        
         /// <returns>The encoded string</returns>
         public string EncodeString(string sourceString)
-        {
-            return EncodeString(sourceString, _psw, _IV);
-        }
+            => EncodeString(sourceString, _psw, _IV);        
 
         /// <summary>
         /// Decode a string encrypted using Rijndael.
@@ -36,9 +34,7 @@ namespace DBTek.Crypto
         /// <param name="sourceString">The string to decode</param>        
         /// <returns>The decoded string</returns>
         public string DecodeString(string sourceString)
-        {
-            return DecodeString(sourceString, _psw, _IV);
-        }
+            => DecodeString(sourceString, _psw, _IV);        
 
         /// <summary>
         /// Encode a string using Rijndael with specified password and IV strings.
@@ -50,10 +46,10 @@ namespace DBTek.Crypto
         public string EncodeString(string sourceString, string password, String IV)
         {
             if (string.IsNullOrEmpty(password))
-                throw new ArgumentException("Please specify the password", "password");
+                throw new ArgumentException("Please specify the password", nameof(password));
 
             if (string.IsNullOrEmpty(IV))
-                throw new ArgumentException("Please specify the Initialize Vector", "IV");
+                throw new ArgumentException("Please specify the Initialize Vector", nameof(IV));
 
             if (!string.IsNullOrEmpty(sourceString))
             {
@@ -98,10 +94,10 @@ namespace DBTek.Crypto
         public string DecodeString(string sourceString, string password, String IV)
         {
             if (string.IsNullOrEmpty(password))
-                throw new ArgumentException("Please specify the password", "password");
+                throw new ArgumentException("Please specify the password", nameof(password));
 
             if (string.IsNullOrEmpty(IV))
-                throw new ArgumentException("Please specify the Initialize Vector", "IV");
+                throw new ArgumentException("Please specify the Initialize Vector", nameof(IV));
 
             if (!string.IsNullOrEmpty(sourceString))
             {
@@ -154,7 +150,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             EncodeFile(sourceFile, destFile, _psw, _IV);
         }
@@ -170,7 +166,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             DecodeFile(sourceFile, destFile, _psw, _IV);
         }
@@ -188,13 +184,13 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(password))
-                throw new ArgumentException("Please specify the password", "password");
+                throw new ArgumentException("Please specify the password", nameof(password));
 
             if (string.IsNullOrEmpty(IV))
-                throw new ArgumentException("Please specify the Initialize Vector", "IV");
+                throw new ArgumentException("Please specify the Initialize Vector", nameof(IV));
 
             RijndaelManaged rijndael = new RijndaelManaged();
             rijndael.IV = GeneratePassword(IV);
@@ -221,13 +217,13 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(password))
-                throw new ArgumentException("Please specify the password", "password");
+                throw new ArgumentException("Please specify the password", nameof(password));
 
             if (string.IsNullOrEmpty(IV))
-                throw new ArgumentException("Please specify the Initialize Vector", "IV");
+                throw new ArgumentException("Please specify the Initialize Vector", nameof(IV));
 
             RijndaelManaged rijndael = new RijndaelManaged();
             rijndael.IV = GeneratePassword(IV);

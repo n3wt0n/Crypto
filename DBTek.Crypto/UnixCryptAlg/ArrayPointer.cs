@@ -56,28 +56,13 @@ namespace DBTek.Crypto.UnixCryptAlg
         }
 
         public int ArrayLength
-        {
-            get
-            {
-                return array.Length;
-            }
-        }
+            => array.Length;                    
 
         public long ArrayLongLength
-        {
-            get
-            {
-                return array.LongLength;
-            }
-        }
+            => array.LongLength;            
 
         public T[] SourceArray
-        {
-            get
-            {
-                return this.array;
-            }
-        }
+            => this.array;            
 
         public T this[int index]
         {
@@ -93,14 +78,10 @@ namespace DBTek.Crypto.UnixCryptAlg
         }
 
         public override bool Equals(object obj)
-        {
-            return obj is ArrayPointer<T> && this == (ArrayPointer<T>)obj;
-        }
+            => obj is ArrayPointer<T> && this == (ArrayPointer<T>)obj;        
 
         public override int GetHashCode()
-        {
-            return (int)address;
-        }
+            => (int)address;        
 
         public static ArrayPointer<T> operator +(ArrayPointer<T> ap, int offset)
         {
@@ -145,13 +126,9 @@ namespace DBTek.Crypto.UnixCryptAlg
         }
 
         public static bool operator ==(ArrayPointer<T> ap1, ArrayPointer<T> ap2)
-        {
-            return ap1.array == ap2.array && ap1.address == ap2.address;
-        }
+            => ap1.array == ap2.array && ap1.address == ap2.address;        
 
         public static bool operator !=(ArrayPointer<T> ap1, ArrayPointer<T> ap2)
-        {
-            return ap1.array != ap2.array || ap1.address != ap2.address;
-        }
+            => ap1.array != ap2.array || ap1.address != ap2.address;        
     }
 }

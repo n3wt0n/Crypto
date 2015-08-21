@@ -28,7 +28,7 @@ namespace DBTek.Crypto
     /// <summary>
     /// Unix hasher implementation
     /// </summary>
-    public class UnixCrypt : iHasher
+    public class UnixCrypt : IHasher
     {
 
         #region Strings
@@ -39,9 +39,7 @@ namespace DBTek.Crypto
         /// <param name="sourceString">The string to hash</param>
         /// <returns>The hash</returns>
         public string HashString(string sourceString)
-        {
-            return HashString(sourceString, generateSalt(), UnixCryptTypes.SHA2_512);
-        }
+            => HashString(sourceString, generateSalt(), UnixCryptTypes.SHA2_512);        
 
         /// <summary>
         /// Hash a string using a Unix-like format with the provided Crypt Alghoritm type
@@ -50,9 +48,7 @@ namespace DBTek.Crypto
         /// <param name="unixCryptType">The Crypt Alghoritm type</param>
         /// <returns>The hash</returns>
         public string HashString(string sourceString, UnixCryptTypes unixCryptType)
-        {
-            return HashString(sourceString, generateSalt(), unixCryptType);
-        }
+            => HashString(sourceString, generateSalt(), unixCryptType);        
 
         /// <summary>
         /// Hash a string using a Unix-like format with the provided Crypt Alghoritm type and a salt
@@ -64,7 +60,7 @@ namespace DBTek.Crypto
         public string HashString(string sourceString, string salt, UnixCryptTypes unixCryptType)
         {
             if (string.IsNullOrEmpty(salt))
-                throw new ArgumentException("Please specify the salt", "salt");
+                throw new ArgumentException("Please specify the salt", nameof(salt));
 
             if (sourceString != null)
             {
@@ -85,9 +81,7 @@ namespace DBTek.Crypto
         /// <param name="sourceFile">The file to hash complete path</param>                
         /// <returns>The hash</returns>
         public string HashFile(string sourceFile)
-        {
-            return HashFile(sourceFile, generateSalt(), UnixCryptTypes.SHA2_512);
-        }
+            => HashFile(sourceFile, generateSalt(), UnixCryptTypes.SHA2_512);        
 
         /// <summary>
         /// Hash a file using a Unix-like format with the provided Crypt Alghoritm type
@@ -96,9 +90,7 @@ namespace DBTek.Crypto
         /// <param name="unixCryptType">The Crypt Alghoritm type</param>
         /// <returns>The hash</returns>
         public string HashFile(string sourceFile, UnixCryptTypes unixCryptType)
-        {
-            return HashFile(sourceFile, generateSalt(), unixCryptType);
-        }
+            => HashFile(sourceFile, generateSalt(), unixCryptType);        
 
         /// <summary>
         /// Hash a file using a Unix-like format with the provided Crypt Alghoritm type and a salt
@@ -121,7 +113,7 @@ namespace DBTek.Crypto
 
         #region Utils
 
-        private static Random random = new Random((int)DateTime.Now.Ticks);//thanks to McAden
+        private static Random random = new Random((int)DateTime.Now.Ticks);
 
         /// <summary>
         /// generate a 16char random salt
@@ -131,7 +123,7 @@ namespace DBTek.Crypto
         {
             int size = 16;
 
-            StringBuilder builder = new StringBuilder();
+            var builder = new StringBuilder();
             char ch;
             for (int i = 0; i < size; i++)
             {

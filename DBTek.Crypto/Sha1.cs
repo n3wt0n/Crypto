@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DBTek.Crypto
 {
     /// <summary>
     /// SHA1 encoder implementation
     /// </summary>
-    public class SHA1_Hsr : DBTek.Crypto.iHasher
+    public class SHA1_Hsr : DBTek.Crypto.IHasher
     {
 
         #region Strings
@@ -65,13 +64,6 @@ namespace DBTek.Crypto
             return sha.ComputeHash(input);
         }
 
-        #endregion
-
-
-
-
-
-
-
+        #endregion       
     }
 }

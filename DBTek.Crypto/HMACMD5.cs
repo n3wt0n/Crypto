@@ -26,18 +26,14 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(key))
-                throw new ArgumentException("Please specify the key", "key");
+                throw new ArgumentException("Please specify the key", nameof(key));
 
             // Create a key using a random number generator. This would be the
             //  secret key shared by sender and receiver.
             byte[] secretkey = Utils.StrToByteArray(key);
-            //RNGCryptoServiceProvider is an implementation of a random number generator.
-            //RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            // The array is now filled with cryptographically strong random bytes.
-            //rng.GetBytes(secretkey);
 
             // Initialize the keyed hash object.
             HMACMD5 myhmacMD5 = new HMACMD5(secretkey);
@@ -78,18 +74,14 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(key))
-                throw new ArgumentException("Please specify the key", "key");
+                throw new ArgumentException("Please specify the key", nameof(key));
 
             // Create a key using a random number generator. This would be the
             //  secret key shared by sender and receiver.
-            byte[] secretkey = Utils.StrToByteArray(key);
-            //RNGCryptoServiceProvider is an implementation of a random number generator.
-            //RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider();
-            // The array is now filled with cryptographically strong random bytes.
-            //rng.GetBytes(secretkey);
+            byte[] secretkey = Utils.StrToByteArray(key);            
 
             // Initialize the keyed hash object. 
             HMACMD5 hmacMD5 = new HMACMD5(secretkey);
@@ -112,7 +104,6 @@ namespace DBTek.Crypto
                     inStream.Close();
                     return false;
                 }
-
             }
 
             FileStream outStream = new FileStream(destFile, FileMode.Create);
@@ -136,5 +127,5 @@ namespace DBTek.Crypto
 
         #endregion               
 
-    } 
+    }
 }

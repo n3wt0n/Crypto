@@ -7,7 +7,7 @@ namespace DBTek.Crypto
     /// <summary>
     /// UUEncoding encoder implementation
     /// </summary>
-    public class UUEncoder : iEncoder
+    public class UUEncoder : IEncoder
     {
 
         #region Strings
@@ -101,7 +101,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             byte[] bin = File.ReadAllBytes(sourceFile);
 
@@ -129,7 +129,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             if (string.IsNullOrWhiteSpace(destFile))
-                throw new ArgumentException("Please specify the path of the output path", "destFile");
+                throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             FileStream fs = null;
 
