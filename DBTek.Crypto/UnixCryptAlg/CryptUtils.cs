@@ -92,10 +92,7 @@ namespace DBTek.Crypto.UnixCryptAlg
             => MakeSalt(DefaultType);        
 
         private static int GetRounds()
-        {
-            var random = new Random();
-            return random.Next(10000, 60000);
-        }
+            => new Random().Next(10000, 60000);        
 
         public static string MakeSalt(string algoType)
         {
