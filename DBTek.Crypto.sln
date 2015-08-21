@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{4E23F14C-621A-4009-9FB5-C6771DD93FFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTek.Crypto", "DBTek.Crypto\DBTek.Crypto.csproj", "{6780ACC5-60FE-40F9-B01E-A64E73FBFDC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTek.Crypto.Test", "DBTek.Crypto.Test\DBTek.Crypto.Test.csproj", "{BD4FA5C9-244C-4B04-A5DD-5A3F9389BE71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6780ACC5-60FE-40F9-B01E-A64E73FBFDC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6780ACC5-60FE-40F9-B01E-A64E73FBFDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6780ACC5-60FE-40F9-B01E-A64E73FBFDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6780ACC5-60FE-40F9-B01E-A64E73FBFDC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD4FA5C9-244C-4B04-A5DD-5A3F9389BE71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD4FA5C9-244C-4B04-A5DD-5A3F9389BE71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD4FA5C9-244C-4B04-A5DD-5A3F9389BE71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD4FA5C9-244C-4B04-A5DD-5A3F9389BE71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BD4FA5C9-244C-4B04-A5DD-5A3F9389BE71} = {4E23F14C-621A-4009-9FB5-C6771DD93FFC}
+	EndGlobalSection
+EndGlobal

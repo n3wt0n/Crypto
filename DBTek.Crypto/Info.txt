@@ -1,0 +1,20 @@
+﻿A library to Encrypt/Decript and Hash files and strings
+
+Implemented Algorithms: Hash
+============================
+CRC32
+HMAC-MD5
+MD5
+SHA-1
+Unix-MD5
+Unix-SHA2-256
+Unix-SHA2-512
+
+
+Implemented Algorithms: Encode/Decode
+=====================================
+Base64
+QuotedPrintable
+Rijndael (AES)
+TripleDes
+UUEncode
