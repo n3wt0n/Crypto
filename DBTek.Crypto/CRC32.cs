@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -22,7 +23,7 @@ namespace DBTek.Crypto
         {
             if (sourceString != null)
             {
-                byte[] message = Encoding.UTF8.GetBytes(sourceString);
+                byte[] message = sourceString.ToByteArray();
                 var hashString = new SHA1Managed();
                 string hex = "";
                 foreach (byte x in HashBytes(message))

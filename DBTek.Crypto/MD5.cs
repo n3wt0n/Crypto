@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace DBTek.Crypto
 {
@@ -20,14 +18,8 @@ namespace DBTek.Crypto
         /// <returns>The hash</returns>
         public string HashString(string sourceString)
         {
-            if (sourceString != null)
-            {
-                byte[] message = Encoding.UTF8.GetBytes(sourceString);
-                string hex = "";
-                foreach (byte x in HashBytes(message))
-                    hex += Convert.ToString(x, 16).PadLeft(2, '0');
-                return hex;
-            }
+            if (sourceString != null)            
+                return Helpers.MD5.GetHashString(sourceString);            
             else
                 return String.Empty;
         }
@@ -47,20 +39,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             byte[] message = File.ReadAllBytes(sourceFile);
-            string hex = "";
-            foreach (byte x in HashBytes(message))
-                hex += Convert.ToString(x, 16).PadLeft(2, '0');
-            return hex;
-        }
-
-        #endregion
-
-        #region Utils
-
-        private byte[] HashBytes(byte[] input)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            return md5.ComputeHash(input);
+            return Helpers.MD5.GetHashString(message);
         }
 
         #endregion

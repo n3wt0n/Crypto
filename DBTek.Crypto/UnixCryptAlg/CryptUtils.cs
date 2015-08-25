@@ -1,6 +1,7 @@
 using System.Text;
 using System;
 using System.Security.Cryptography;
+using DBTek.Crypto.Extensions;
 
 namespace DBTek.Crypto.UnixCryptAlg
 {
@@ -59,8 +60,8 @@ namespace DBTek.Crypto.UnixCryptAlg
 
         public static string Crypt(string password, string salt)
         {
-            var keyPtr = new ArrayPointer<byte>(Encoding.UTF8.GetBytes(password + "\0"));
-            var saltPtr = new ArrayPointer<byte>(Encoding.UTF8.GetBytes(salt + "\0"));
+            var keyPtr = new ArrayPointer<byte>((password + "\0").ToByteArray());
+            var saltPtr = new ArrayPointer<byte>((salt + "\0").ToByteArray());
 
             /* Try to find out whether we have to use MD5 encryption replacement.  */
             if (CryptImpl.strncmp(CryptImpl.md5_salt_prefix, saltPtr, CryptImpl.strlen(CryptImpl.md5_salt_prefix)) == 0)            

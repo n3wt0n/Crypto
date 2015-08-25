@@ -203,11 +203,7 @@ namespace DBTek.Crypto
         #region Utils
 
         private byte[] GeneratePassword(string password)
-        {
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] input = Encoding.UTF8.GetBytes(password);
-            return md5.ComputeHash(input, 0, input.Length);
-        }
+            => Helpers.MD5.GetHash(password);        
 
         #endregion
 

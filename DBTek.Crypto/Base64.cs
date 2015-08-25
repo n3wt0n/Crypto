@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.IO;
 
 namespace DBTek.Crypto
@@ -20,7 +21,7 @@ namespace DBTek.Crypto
         {
             if (!string.IsNullOrWhiteSpace(sourceString))
             {
-                byte[] filebytes = Utils.StrToByteArray(sourceString);
+                byte[] filebytes = sourceString.ToByteArray();
                 return Convert.ToBase64String(filebytes);
             }
             else

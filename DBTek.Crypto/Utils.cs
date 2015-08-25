@@ -7,14 +7,7 @@ namespace DBTek.Crypto
     /// Utility classes
     /// </summary>
     public class Utils
-    {
-        // Convert a string to a byte array.
-        internal static byte[] StrToByteArray(string str)
-        {
-            var encoding = new UTF8Encoding();
-            return encoding.GetBytes(str);
-        }
-
+    {        
         // Convert a byte array to a string.
         internal static string ByteArrayToStr(Byte[] bytearray)
         {

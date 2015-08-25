@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Security.Cryptography;
+using DBTek.Crypto.Extensions;
 
 namespace DBTek.Crypto
 {
@@ -33,7 +34,7 @@ namespace DBTek.Crypto
 
             // Create a key using a random number generator. This would be the
             //  secret key shared by sender and receiver.
-            byte[] secretkey = Utils.StrToByteArray(key);
+            byte[] secretkey = key.ToByteArray();
 
             // Initialize the keyed hash object.
             HMACMD5 myhmacMD5 = new HMACMD5(secretkey);
@@ -81,7 +82,7 @@ namespace DBTek.Crypto
 
             // Create a key using a random number generator. This would be the
             //  secret key shared by sender and receiver.
-            byte[] secretkey = Utils.StrToByteArray(key);            
+            byte[] secretkey = key.ToByteArray();            
 
             // Initialize the keyed hash object. 
             HMACMD5 hmacMD5 = new HMACMD5(secretkey);

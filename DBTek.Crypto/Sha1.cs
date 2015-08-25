@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -8,7 +9,7 @@ namespace DBTek.Crypto
     /// <summary>
     /// SHA1 encoder implementation
     /// </summary>
-    public class SHA1_Hsr : DBTek.Crypto.IHasher
+    public class SHA1_Hsr : IHasher
     {
 
         #region Strings
@@ -22,7 +23,7 @@ namespace DBTek.Crypto
         {
             if (sourceString != null)
             {
-                byte[] message = Encoding.UTF8.GetBytes(sourceString);
+                byte[] message = sourceString.ToByteArray();
                 string hex = "";
                 foreach (byte x in HashBytes(message))
                     hex += Convert.ToString(x, 16).PadLeft(2, '0');
