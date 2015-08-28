@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -126,10 +127,10 @@ namespace DBTek.Crypto
         /// <param name="IV">The IV string</param>        
         public void EncodeFile(String sourceFile, String destFile, String password, String IV)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(password))
@@ -167,10 +168,10 @@ namespace DBTek.Crypto
 
         public void DecodeFile(String sourceFile, String destFile, String password, String IV)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(password))

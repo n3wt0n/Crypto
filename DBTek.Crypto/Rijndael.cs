@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -146,10 +147,10 @@ namespace DBTek.Crypto
         /// <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>        
         public void EncodeFile(string sourceFile, string destFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             EncodeFile(sourceFile, destFile, _psw, _IV);
@@ -162,10 +163,10 @@ namespace DBTek.Crypto
         /// <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>        
         public void DecodeFile(string sourceFile, string destFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             DecodeFile(sourceFile, destFile, _psw, _IV);
@@ -180,10 +181,10 @@ namespace DBTek.Crypto
         /// <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>        
         public void EncodeFile(string sourceFile, string destFile, string password, string IV)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(password))
@@ -213,10 +214,10 @@ namespace DBTek.Crypto
         /// <param name="IV">The IV string</param>        
         public void DecodeFile(string sourceFile, string destFile, string password, string IV)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(password))

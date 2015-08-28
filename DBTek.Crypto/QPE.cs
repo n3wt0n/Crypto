@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -19,7 +20,7 @@ namespace DBTek.Crypto
         /// <returns>The encoded string</returns>
         public string EncodeString(string sourceString)
         {
-            if (!string.IsNullOrWhiteSpace(sourceString))
+            if (!sourceString.IsNullOrWhiteSpace())
             {
                 string str = "";
                 var Coded = EncodeBytes(Array.ConvertAll<char, byte>(sourceString.ToCharArray(), new Converter<char, byte>(Convert.ToByte)));
@@ -43,7 +44,7 @@ namespace DBTek.Crypto
         /// <returns>The decoded string</returns>
         public string DecodeString(string sourceString)
         {
-            if (!string.IsNullOrWhiteSpace(sourceString))
+            if (!sourceString.IsNullOrWhiteSpace())
             {
                 string returnStr = "";
 
@@ -80,10 +81,10 @@ namespace DBTek.Crypto
         /// <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
         public void EncodeFile(string sourceFile, string destFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             byte[] binput = File.ReadAllBytes(sourceFile);
@@ -100,10 +101,10 @@ namespace DBTek.Crypto
         /// <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
         public void DecodeFile(string sourceFile, string destFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             string[] input = File.ReadAllLines(sourceFile);

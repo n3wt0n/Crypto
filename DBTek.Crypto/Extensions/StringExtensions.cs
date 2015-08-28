@@ -20,5 +20,13 @@
             }
             return rtn;
         }
+
+        /// <summary>
+        /// Checks if a stirng is null, empty or filled with only white spaces
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        internal static bool IsNullOrWhiteSpace(this string str)
+            => string.IsNullOrEmpty(str) || str.Trim().Length == 0;
     }
 }

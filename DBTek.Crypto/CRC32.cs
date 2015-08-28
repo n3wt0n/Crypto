@@ -45,7 +45,7 @@ namespace DBTek.Crypto
         /// <returns>The hash</returns>
         public string HashFile(string sourceFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             byte[] message = File.ReadAllBytes(sourceFile);

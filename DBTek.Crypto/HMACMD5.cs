@@ -23,10 +23,10 @@ namespace DBTek.Crypto
         /// <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
         public void EncodeFile(string key, String sourceFile, String destFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(key))
@@ -71,10 +71,10 @@ namespace DBTek.Crypto
         /// <returns></returns>
         public bool DecodeFile(string key, String sourceFile, String destFile)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            if (string.IsNullOrWhiteSpace(destFile))
+            if (destFile.IsNullOrWhiteSpace())
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             if (string.IsNullOrEmpty(key))

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBTek.Crypto.Extensions;
+using System;
 using System.IO;
 using System.Text;
 
@@ -101,7 +102,7 @@ namespace DBTek.Crypto
         /// <returns>The hash</returns>
         public string HashFile(string sourceFile, string salt, UnixCryptTypes unixCryptType)
         {
-            if (string.IsNullOrWhiteSpace(sourceFile) || !File.Exists(sourceFile))
+            if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             var text = File.ReadAllText(sourceFile);
