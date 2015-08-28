@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBTek.Crypto</name>
+    </assembly>
+    <members>
+        <member name="T:DBTek.Crypto.Base64">
+            <summary>
+            Base64 encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.Base64.EncodeString(System.String)">
+            <summary>
+            Encode a string using Base64 format
+            </summary>
+            <param name="sourceString">The source string to encode</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Base64.DecodeString(System.String)">
+            <summary>
+            Decode a string encoded in Base64 format
+            </summary>
+            <param name="sourceString">The encoded string to decode</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Base64.EncodeFile(System.String,System.String)">
+            <summary>
+            Encode a File using Base64 format
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.Base64.DecodeFile(System.String,System.String)">
+            <summary>
+            Decode a File encoded in Base64 format
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.Extensions.StringExtensions.ToByteArray(System.String)">
+            <summary>
+            Convert a string to it's ascii byte array equivalent
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBTek.Crypto.Extensions.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Checks if a stirng is null, empty or filled with only white spaces
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DBTek.Crypto.CRC32_Hsr">
+            <summary>
+            CRC32 hasher implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.CRC32_Hsr.HashString(System.String)">
+            <summary>
+            Hash a string using CRC32
+            </summary>
+            <param name="sourceString">The string to hash</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.CRC32_Hsr.HashFile(System.String)">
+            <summary>
+            Hash a file using CRC32
+            </summary>
+            <param name="sourceFile">The file to hash complete path</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="T:DBTek.Crypto.Helpers.HMACMD5">
+            <summary>
+            Computes a Hash-based Message Authentication Code (HMAC) using the <see cref="T:xBrainLab.Security.Cryptography.MD5" /> hash function
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBTek.Crypto.Helpers.HMACMD5"/> class using the supplied key with UT8 encoding.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.#ctor(System.String,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBTek.Crypto.Helpers.HMACMD5"/> class using the supplied key with supplied encoding.
+            </summary>
+            <param name="key">The key.</param>
+            <param name="encoding">The encoding used to read the key.</param>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:DBTek.Crypto.Helpers.HMACMD5"/> class the supplied key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="P:DBTek.Crypto.Helpers.HMACMD5.Key">
+            <summary>
+            Gets or sets the key.
+            </summary>
+            <value>
+            The key.
+            </value>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.ComputeHash(System.String)">
+            <summary>
+            Computes the hash value for the specified string (UTF8 default encoding).
+            </summary>
+            <param name="buffer">The input to compute the hash code for. </param>
+            <returns>The computed hash code</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.ComputeHash(System.String,System.Text.Encoding)">
+            <summary>
+            Computes the hash value for the specified string.
+            </summary>
+            <param name="buffer">The input to compute the hash code for.</param>
+            <param name="encoding">The encoding.</param>
+            <returns>
+            The computed hash code
+            </returns>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.ComputeHash(System.Byte[])">
+            <summary>
+            Computes the hash value for the specified byte array.
+            </summary>
+            <param name="buffer">The input to compute the hash code for.</param>
+            <returns>
+            The computed hash code
+            </returns>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.ComputeHashToBase64String(System.String)">
+            <summary>
+            Computes the hash for the specified string (UTF8 default encoding) to base64 string.
+            </summary>
+            <param name="buffer">The input to compute the hash code for.</param>
+            <returns>The computed hash code in base64 string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.ComputeHashToBase64String(System.String,System.Text.Encoding)">
+            <summary>
+            Computes the hash for the specified string to base64 string.
+            </summary>
+            <param name="buffer">The input to compute the hash code for.</param>
+            <param name="encoding">The encoding.</param>
+            <returns>
+            The computed hash code in base64 string
+            </returns>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.InitializeKey(System.Byte[])">
+            <summary>
+            Initializes the key.
+            </summary>
+            <param name="key">The key.</param>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.UpdateIOPadBuffers">
+            <summary>
+            Updates the IO pad buffers.
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.Helpers.HMACMD5.Combine(System.Byte[],System.Byte[])">
+            <summary>
+            Combines two array (a1 and a2).
+            </summary>
+            <param name="a1">The Array 1.</param>
+            <param name="a2">The Array 2.</param>
+            <returns>Combinaison of a1 and a2</returns>
+        </member>
+        <member name="T:DBTek.Crypto.Helpers.ABCDStruct">
+            <summary>
+            Simple struct for the (a,b,c,d) which is used to compute the mesage digest.    
+            </summary>
+        </member>
+        <member name="T:DBTek.Crypto.Helpers.MD5">
+            <summary>
+            Raw implementation of the MD5 hash algorithm rom RFC 1321.
+            </summary>
+        </member>
+        <member name="T:DBTek.Crypto.cHMACMD5">
+            <summary>
+            HMACMD5 encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.cHMACMD5.EncodeFile(System.String,System.String,System.String)">
+            <summary>
+            Computes a keyed hash for a source file, creates a target file with the keyed hash
+            prepended to the contents of the source file, then decrypts the file and compares
+            the source and the decrypted files.
+            </summary>
+            <param name="key">The key to use to encode the file</param>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.cHMACMD5.DecodeFile(System.String,System.String,System.String)">
+            <summary>
+            Decrypt the encoded file and compare to original file. It returns false if the file is corrupted.
+            </summary>
+            <param name="key">The key used to encode the file</param>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+            <returns></returns>
+        </member>
+        <member name="T:DBTek.Crypto.IEncoder">
+            <summary>
+            Interface for encoders implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.IEncoder.EncodeString(System.String)">
+            <summary>
+            General methof signature for encoding strings
+            </summary>
+            <param name="inputString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBTek.Crypto.IEncoder.DecodeString(System.String)">
+            <summary>
+            General methof signature for decoding  strings
+            </summary>
+            <param name="inputString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBTek.Crypto.IEncoder.EncodeFile(System.String,System.String)">
+            <summary>
+            General methof signature for encoding files
+            </summary>
+            <param name="sourceFile"></param>
+            <param name="destFile"></param>
+        </member>
+        <member name="M:DBTek.Crypto.IEncoder.DecodeFile(System.String,System.String)">
+            <summary>
+            General methof signature for decoding files
+            </summary>
+            <param name="sourceFile"></param>
+            <param name="destFile"></param>
+        </member>
+        <member name="T:DBTek.Crypto.IHasher">
+            <summary>
+            Interface for hashers implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.IHasher.HashString(System.String)">
+            <summary>
+            General methof signature for hashing strings
+            </summary>
+            <param name="sourceString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DBTek.Crypto.IHasher.HashFile(System.String)">
+            <summary>
+            General methof signature for hashing files
+            </summary>
+            <param name="sourceFile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DBTek.Crypto.MD5_Hsr">
+            <summary>
+            MD5 hasher implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.MD5_Hsr.HashString(System.String)">
+            <summary>
+            Hash a string using MD5
+            </summary>
+            <param name="sourceString">The string to hash</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.MD5_Hsr.HashFile(System.String)">
+            <summary>
+            Hash a file using MD5
+            </summary>
+            <param name="sourceFile">The file to hash complete path</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="T:DBTek.Crypto.QuotedPrintable">
+            <summary>
+            QuotedPrintable encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.QuotedPrintable.EncodeString(System.String)">
+            <summary>
+            Encode a string using QuotedPrintable
+            </summary>
+            <param name="sourceString">The string to encode</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.QuotedPrintable.DecodeString(System.String)">
+            <summary>
+            Decode a string encoded with QuotedPrintable
+            </summary>
+            <param name="sourceString">The encoded string to decode</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.QuotedPrintable.EncodeFile(System.String,System.String)">
+            <summary>
+            Encode a file using QuotedPrintable
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.QuotedPrintable.DecodeFile(System.String,System.String)">
+            <summary>
+            Decode a file encoded with QuotedPrintable
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="T:DBTek.Crypto.Rijndael">
+            <summary>
+            Rijndael encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.EncodeString(System.String)">
+            <summary>
+            Encode a string using Rijndael.
+            </summary>
+            <param name="sourceString">The string to encode</param>        
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.DecodeString(System.String)">
+            <summary>
+            Decode a string encrypted using Rijndael.
+            </summary>
+            <param name="sourceString">The string to decode</param>        
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.EncodeString(System.String,System.String,System.String)">
+            <summary>
+            Encode a string using Rijndael with specified password and IV strings.
+            </summary>
+            <param name="sourceString">The string to encode</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.DecodeString(System.String,System.String,System.String)">
+            <summary>
+            Decode a string endoced using Rijndael with specified password and IV strings.
+            </summary>
+            <param name="sourceString">The string to decode</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param> 
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.EncodeFile(System.String,System.String)">
+            <summary>
+            Encode a file using Rijndael.
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>        
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>        
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.DecodeFile(System.String,System.String)">
+            <summary>
+            Decode a file encripted using Rijndael with specified password and IV strings.
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>        
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.EncodeFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Encode a file using Rijndael with specified password and IV strings.
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>        
+        </member>
+        <member name="M:DBTek.Crypto.Rijndael.DecodeFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Decode a file encripted using Rijndael with specified password and IV strings.
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param>        
+        </member>
+        <member name="T:DBTek.Crypto.SHA1_Hsr">
+            <summary>
+            SHA1 encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.SHA1_Hsr.HashString(System.String)">
+            <summary>
+            Hash a string using SHA1
+            </summary>
+            <param name="sourceString">The string to hash</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.SHA1_Hsr.HashFile(System.String)">
+            <summary>
+            Hash a file using SHA1
+            </summary>
+            <param name="sourceFile">The file to hash complete path</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="T:DBTek.Crypto.TripleDES">
+            <summary>
+            TripleDES encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.EncodeString(System.String)">
+            <summary>
+            Encode a string using TripleDES
+            </summary>
+            <param name="sourceString">The source string to encode</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.DecodeString(System.String)">
+            <summary>
+            Decode a string encoded in TripleDES
+            </summary>
+            <param name="sourceString">The encoded string to decode</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.EncodeString(System.String,System.String,System.String)">
+            <summary>
+            Encode a string using TripleDES with specified password and IV strings.
+            </summary>
+            <param name="sourceString">The string to encode</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.DecodeString(System.String,System.String,System.String)">
+            <summary>
+            Decode a string encoded using TripleDES with specified password and IV strings.
+            </summary>
+            <param name="sourceString">The string to decode</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param> 
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.EncodeFile(System.String,System.String)">
+            <summary>
+            Encode a File using TripleDES
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.DecodeFile(System.String,System.String)">
+            <summary>
+            Decode a File encoded in TripleDES
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.EncodeFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Encode a file using Rijndael with specified password and IV strings.
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param>        
+        </member>
+        <member name="M:DBTek.Crypto.TripleDES.DecodeFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            Decode a file encripted using TripleDES with specified password and IV strings.
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+            <param name="password">The password string</param>
+            <param name="IV">The IV string</param>        
+        </member>
+        <member name="T:DBTek.Crypto.UnixCryptTypes">
+            <summary>
+            Types of supported Unix-like alghoritm
+            </summary>
+        </member>
+        <member name="F:DBTek.Crypto.UnixCryptTypes.MD5">
+            <summary>
+            MD5 Unix-like alghoritm
+            </summary>
+        </member>
+        <member name="F:DBTek.Crypto.UnixCryptTypes.SHA2_256">
+            <summary>
+            SHA2-256 Unix-like alghoritm
+            </summary>
+        </member>
+        <member name="F:DBTek.Crypto.UnixCryptTypes.SHA2_512">
+            <summary>
+            SHA2-512 Unix-like alghoritm
+            </summary>
+        </member>
+        <member name="T:DBTek.Crypto.UnixCrypt">
+            <summary>
+            Unix hasher implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.HashString(System.String)">
+            <summary>
+            Hash a string using a Unix-like format SHA2-512
+            </summary>
+            <param name="sourceString">The string to hash</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.HashString(System.String,DBTek.Crypto.UnixCryptTypes)">
+            <summary>
+            Hash a string using a Unix-like format with the provided Crypt Alghoritm type
+            </summary>
+            <param name="sourceString">The string to hash</param>
+            <param name="unixCryptType">The Crypt Alghoritm type</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.HashString(System.String,System.String,DBTek.Crypto.UnixCryptTypes)">
+            <summary>
+            Hash a string using a Unix-like format with the provided Crypt Alghoritm type and a salt
+            </summary>
+            <param name="sourceString">The string to hash</param>
+            <param name="salt">The salt to apply to the hash</param>
+            <param name="unixCryptType">The Crypt Alghoritm type</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.HashFile(System.String)">
+            <summary>
+            Hash a file using a Unix-like format SHA2-512
+            </summary>
+            <param name="sourceFile">The file to hash complete path</param>                
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.HashFile(System.String,DBTek.Crypto.UnixCryptTypes)">
+            <summary>
+            Hash a file using a Unix-like format with the provided Crypt Alghoritm type
+            </summary>
+            <param name="sourceFile">The file to hash complete path</param>        
+            <param name="unixCryptType">The Crypt Alghoritm type</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.HashFile(System.String,System.String,DBTek.Crypto.UnixCryptTypes)">
+            <summary>
+            Hash a file using a Unix-like format with the provided Crypt Alghoritm type and a salt
+            </summary>
+            <param name="sourceFile">The file to hash complete path</param>
+            <param name="salt">The salt to apply to the hash</param>
+            <param name="unixCryptType">The Crypt Alghoritm type</param>
+            <returns>The hash</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UnixCrypt.generateSalt">
+            <summary>
+            generate a 16char random salt
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:DBTek.Crypto.UnixCryptAlg.SplittedHash.Salt">
+            <summary>
+            Actual salt param of the hash, does NOT include the protocol and rounds.
+            </summary>
+        </member>
+        <member name="T:DBTek.Crypto.Utils">
+            <summary>
+            Utility classes
+            </summary>
+        </member>
+        <member name="T:DBTek.Crypto.UUEncoder">
+            <summary>
+            UUEncoding encoder implementation
+            </summary>
+        </member>
+        <member name="M:DBTek.Crypto.UUEncoder.EncodeString(System.String)">
+            <summary>
+            Encode a string using UUEncoder
+            </summary>
+            <param name="sourceString">The source string to encode</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UUEncoder.DecodeString(System.String)">
+            <summary>
+            Decode a string encoded with UUEncoder
+            </summary>
+            <param name="sourceString">The encoded string to decode</param>
+            <returns>The decoded string</returns>
+        </member>
+        <member name="M:DBTek.Crypto.UUEncoder.EncodeFile(System.String,System.String)">
+            <summary>
+            Encode a File using UUEncoder
+            </summary>
+            <param name="sourceFile">The file to encrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+        <member name="M:DBTek.Crypto.UUEncoder.DecodeFile(System.String,System.String)">
+            <summary>
+            Decode a File encoded with UUEncoder
+            </summary>
+            <param name="sourceFile">The file to decrypt complete path</param>
+            <param name="destFile">Destination file complete path. If the file doesn't exist, it creates it</param>
+        </member>
+    </members>
+</doc>

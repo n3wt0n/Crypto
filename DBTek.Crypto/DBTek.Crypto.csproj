@@ -113,6 +113,16 @@
     <Content Include="Info.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (
+xcopy "*Crypto*.dll" "$(SolutionDir)NuGet\Package\lib\net35" /R /Q /Y
+xcopy "*Crypto*.xml" "$(SolutionDir)NuGet\Package\lib\net35" /R /Q /Y
+xcopy "*Crypto*.dll" "$(SolutionDir)NuGet\Package\lib\net40" /R /Q /Y
+xcopy "*Crypto*.xml" "$(SolutionDir)NuGet\Package\lib\net40" /R /Q /Y
+xcopy "*Crypto*.dll" "$(SolutionDir)NuGet\Package\lib\net45" /R /Q /Y
+xcopy "*Crypto*.xml" "$(SolutionDir)NuGet\Package\lib\net45" /R /Q /Y
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
