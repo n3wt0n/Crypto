@@ -21,6 +21,7 @@ namespace DBTek.Crypto
         /// <returns></returns>
         string DecodeString(string inputString);
 
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
         /// <summary>
         /// General methof signature for encoding files
         /// </summary>
@@ -34,6 +35,6 @@ namespace DBTek.Crypto
         /// <param name="sourceFile"></param>
         /// <param name="destFile"></param>
         void DecodeFile(String sourceFile, String destFile);
-
+#endif
     }
 }

@@ -17,7 +17,7 @@ namespace DBTek.Crypto.Helpers
         {
             table = InitializeTable(DefaultPolynomial);
             seed = DefaultSeed;
-            Initialize();
+            Initialize();                   
         }
 
         public Crc32(UInt32 polynomial, UInt32 seed)

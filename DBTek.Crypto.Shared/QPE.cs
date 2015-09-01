@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace DBTek.Crypto
 {
@@ -22,13 +23,13 @@ namespace DBTek.Crypto
         {
             if (!sourceString.IsNullOrWhiteSpace())
             {
-                string str = "";
-                var Coded = EncodeBytes(Array.ConvertAll<char, byte>(sourceString.ToCharArray(), new Converter<char, byte>(Convert.ToByte)));
+                string str = "";                
+                var coded = EncodeBytes(sourceString.ToCharArray().Select(c => Convert.ToByte(c)).ToArray());
 
-                for (int i = 0; i < Coded.Count; i++)
+                for (int i = 0; i < coded.Count; i++)
                 {
-                    str += Coded[i];
-                    if (i < Coded.Count - 1) str += "\r\n";
+                    str += coded[i];
+                    if (i < coded.Count - 1) str += "\r\n";
                 }
 
                 return str;
@@ -72,8 +73,9 @@ namespace DBTek.Crypto
 
         #endregion
 
-        #region Files
 
+        #region Files
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
         /// <summary>
         /// Encode a file using QuotedPrintable
         /// </summary>
@@ -143,8 +145,9 @@ namespace DBTek.Crypto
 
             fs.Close();
         }
-
+#endif
         #endregion
+
 
         #region Utils
 

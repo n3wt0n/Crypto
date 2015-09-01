@@ -89,6 +89,7 @@ namespace DBTek.Crypto
 
         #endregion
 
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
         #region Files
 
         /// <summary>
@@ -159,6 +160,7 @@ namespace DBTek.Crypto
         }
 
         #endregion
+#endif
 
         #region Utils
 

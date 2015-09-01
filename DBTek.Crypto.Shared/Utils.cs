@@ -12,7 +12,7 @@ namespace DBTek.Crypto
         internal static string ByteArrayToStr(Byte[] bytearray)
         {
             var enc = new UTF8Encoding();
-            return enc.GetString(bytearray);
+            return enc.GetString(bytearray, 0, bytearray.Length);
         }
     }
 }
