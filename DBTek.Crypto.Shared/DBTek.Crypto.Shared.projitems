@@ -11,7 +11,9 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Base64.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ClearData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CRC32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\CRC32Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\HMACMD5Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\MD5Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IEncoder.cs" />

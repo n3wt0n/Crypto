@@ -2,7 +2,6 @@
 using DBTek.Crypto.Helpers;
 using System;
 using System.IO;
-using System.Security.Cryptography;
 
 namespace DBTek.Crypto
 {
@@ -23,12 +22,10 @@ namespace DBTek.Crypto
         {
             if (sourceString != null)
             {
-                byte[] message = sourceString.ToByteArray();
-                var hashString = new SHA1Managed();
-                string hex = "";
-                foreach (byte x in HashBytes(message))
-                    hex += Convert.ToString(x, 16).PadLeft(2, '0');
-                return hex;
+                using (var crc32 = new CRC32Helper())
+                {
+                    return crc32.ComputeChecksumAsString(sourceString.ToByteArray());
+                }
             }
             else
                 return String.Empty;
@@ -37,7 +34,7 @@ namespace DBTek.Crypto
         #endregion
 
         #region Files
-
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE && !WINDOWS_UWP
         /// <summary>
         /// Hash a file using CRC32
         /// </summary>
@@ -48,23 +45,13 @@ namespace DBTek.Crypto
             if (sourceFile.IsNullOrWhiteSpace() || !File.Exists(sourceFile))
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
-            byte[] message = File.ReadAllBytes(sourceFile);
-            var hashString = new SHA1Managed();
-            string hex = "";
-            foreach (byte x in HashBytes(message))
-                hex += Convert.ToString(x, 16).PadLeft(2, '0');
-            return hex;
+            byte[] fileBytes = File.ReadAllBytes(sourceFile);
+            using (var crc32 = new CRC32Helper())
+            {
+                return crc32.ComputeChecksumAsString(fileBytes);
+            }
         }
-
-        #endregion
-
-        #region Utils
-
-        private byte[] HashBytes(byte[] input)
-        {
-            var crc = new Crc32();
-            return crc.ComputeHash(input);
-        }        
-        #endregion
+#endif
+#endregion
     }
 }
