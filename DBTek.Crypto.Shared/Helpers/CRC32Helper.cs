@@ -16,14 +16,10 @@ namespace DBTek.Crypto.Helpers
                 temp = i;
                 for (int j = 8; j > 0; --j)
                 {
-                    if ((temp & 1) == 1)
-                    {
-                        temp = (uint)((temp >> 1) ^ poly);
-                    }
-                    else
-                    {
-                        temp >>= 1;
-                    }
+                    if ((temp & 1) == 1)                    
+                        temp = (uint)((temp >> 1) ^ poly);                    
+                    else                    
+                        temp >>= 1;                    
                 }
                 table[i] = temp;
             }
