@@ -13,9 +13,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)ClearData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CRC32.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\StringExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\CRC32Helper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\HMACMD5Helper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\MD5Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Hashers\CRC32Hasher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Hashers\MD5Hasher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IEncoder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IHasher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MD5.cs" />

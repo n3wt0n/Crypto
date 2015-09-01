@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace DBTek.Crypto.Helpers
+namespace DBTek.Crypto.Hashers
 {
-    internal class CRC32Helper : IDisposable
+    internal class CRC32 : IDisposable
     {
         uint[] table;
 
-        public CRC32Helper()
+        public CRC32()
         {
             uint poly = 0xedb88320;
             table = new uint[256];
@@ -38,7 +38,6 @@ namespace DBTek.Crypto.Helpers
 
         public byte[] ComputeChecksumAsBytes(byte[] bytes)
             => BitConverter.GetBytes(ComputeChecksum(bytes));        
-
 
         public string ComputeChecksumAsString(byte[] bytes)
         {

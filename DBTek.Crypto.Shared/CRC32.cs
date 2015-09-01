@@ -1,5 +1,5 @@
 ﻿using DBTek.Crypto.Extensions;
-using DBTek.Crypto.Helpers;
+using DBTek.Crypto.Hashers;
 using System;
 using System.IO;
 
@@ -22,7 +22,7 @@ namespace DBTek.Crypto
         {
             if (sourceString != null)
             {
-                using (var crc32 = new CRC32Helper())
+                using (var crc32 = new CRC32())
                 {
                     return crc32.ComputeChecksumAsString(sourceString.ToByteArray());
                 }
@@ -46,7 +46,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             byte[] fileBytes = File.ReadAllBytes(sourceFile);
-            using (var crc32 = new CRC32Helper())
+            using (var crc32 = new CRC32())
             {
                 return crc32.ComputeChecksumAsString(fileBytes);
             }

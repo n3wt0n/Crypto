@@ -2,7 +2,6 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 
 namespace DBTek.Crypto
 {
@@ -243,7 +242,7 @@ namespace DBTek.Crypto
         #region Utils
 
         private byte[] GeneratePassword(string password)
-            => Helpers.MD5.GetHash(password);
+            => Hashers.MD5.GetHash(password);
 
         #endregion
                 

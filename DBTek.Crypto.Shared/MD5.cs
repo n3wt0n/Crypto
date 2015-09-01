@@ -20,7 +20,7 @@ namespace DBTek.Crypto
         public string HashString(string sourceString)
         {
             if (sourceString != null)            
-                return Helpers.MD5.GetHashString(sourceString);            
+                return Hashers.MD5.GetHashString(sourceString);            
             else
                 return String.Empty;
         }
@@ -41,7 +41,7 @@ namespace DBTek.Crypto
                 throw new FileNotFoundException("Cannot find the specified source file", sourceFile ?? "null");
 
             byte[] message = File.ReadAllBytes(sourceFile);
-            return Helpers.MD5.GetHashString(message);
+            return Hashers.MD5.GetHashString(message);
         }
 
         #endregion

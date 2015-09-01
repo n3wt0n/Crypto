@@ -204,7 +204,7 @@ namespace DBTek.Crypto
         #region Utils
 
         private byte[] GeneratePassword(string password)
-            => Helpers.MD5.GetHash(password);        
+            => Hashers.MD5.GetHash(password);        
 
         #endregion
 
