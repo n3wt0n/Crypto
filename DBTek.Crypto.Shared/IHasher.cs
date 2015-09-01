@@ -12,7 +12,7 @@
         /// <returns></returns>
         string HashString(string sourceString);
 
-#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE && !WINDOWS_UWP
         /// <summary>
         /// General methof signature for hashing files
         /// </summary>

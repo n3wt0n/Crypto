@@ -75,7 +75,7 @@ namespace DBTek.Crypto
 
 
         #region Files
-#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE && !WINDOWS_UWP
         /// <summary>
         /// Encode a file using QuotedPrintable
         /// </summary>

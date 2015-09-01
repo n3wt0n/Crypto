@@ -46,7 +46,7 @@ namespace DBTek.Crypto
 
         #endregion
 
-#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE && !WINDOWS_UWP
         #region Files
 
         /// <summary>

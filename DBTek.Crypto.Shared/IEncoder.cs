@@ -21,7 +21,7 @@ namespace DBTek.Crypto
         /// <returns></returns>
         string DecodeString(string inputString);
 
-#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE
+#if !WINDOWS_APP && !WINDOWS_PHONE_APP && !WINDOWS_PHONE && !WINDOWS_UWP
         /// <summary>
         /// General methof signature for encoding files
         /// </summary>

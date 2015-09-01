@@ -17,9 +17,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTek.Crypto.WindowsPhone",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTek.Crypto.WindowsPhoneSL", "DBTek.Crypto.WindowsPhoneSL\DBTek.Crypto.WindowsPhoneSL.csproj", "{81F1443B-4C3C-493D-9C97-F0BD1E38D42D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBTek.Crypto.UWP", "DBTek.Crypto.UWP\DBTek.Crypto.UWP.csproj", "{57270F22-ED10-4437-8B6D-12F8B6309FE6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DBTek.Crypto.Shared\DBTek.Crypto.Shared.projitems*{6780acc5-60fe-40f9-b01e-a64e73fbfdc0}*SharedItemsImports = 4
+		DBTek.Crypto.Shared\DBTek.Crypto.Shared.projitems*{57270f22-ed10-4437-8b6d-12f8b6309fe6}*SharedItemsImports = 4
 		DBTek.Crypto.Shared\DBTek.Crypto.Shared.projitems*{1aa317af-0307-413e-97b1-d08f6266fe0c}*SharedItemsImports = 13
 		DBTek.Crypto.Shared\DBTek.Crypto.Shared.projitems*{7b435419-0c10-4862-af53-a7d868e906e1}*SharedItemsImports = 4
 		DBTek.Crypto.Shared\DBTek.Crypto.Shared.projitems*{81f1443b-4c3c-493d-9c97-f0bd1e38d42d}*SharedItemsImports = 4
@@ -116,6 +119,22 @@ Global
 		{81F1443B-4C3C-493D-9C97-F0BD1E38D42D}.Release|x64.Build.0 = Release|Any CPU
 		{81F1443B-4C3C-493D-9C97-F0BD1E38D42D}.Release|x86.ActiveCfg = Release|x86
 		{81F1443B-4C3C-493D-9C97-F0BD1E38D42D}.Release|x86.Build.0 = Release|x86
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|ARM.ActiveCfg = Debug|ARM
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|ARM.Build.0 = Debug|ARM
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|x64.ActiveCfg = Debug|x64
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|x64.Build.0 = Debug|x64
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|x86.ActiveCfg = Debug|x86
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Debug|x86.Build.0 = Debug|x86
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|ARM.ActiveCfg = Release|ARM
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|ARM.Build.0 = Release|ARM
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|x64.ActiveCfg = Release|x64
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|x64.Build.0 = Release|x64
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|x86.ActiveCfg = Release|x86
+		{57270F22-ED10-4437-8B6D-12F8B6309FE6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
