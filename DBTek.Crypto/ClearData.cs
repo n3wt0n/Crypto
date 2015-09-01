@@ -9,23 +9,15 @@ namespace DBTek.Crypto
         public string DecodeString(string sourceString) { return sourceString; }
 
         public void EncodeFile(String sourceFile, String destFile)
-        {
-            throw new NotImplementedException();
-        }
+            => new NotImplementedException();      
 
         public void DecodeFile(String sourceFile, String destFileT)
-        {
-            throw new NotImplementedException();
-        }
+            => new NotImplementedException();        
 
         public string HashString(string sourceString)
-        {
-            return sourceString;
-        }
+            => sourceString;        
 
         public string HashFile(string sourceFile)
-        {
-            return sourceFile;
-        }
+            =>sourceFile;        
     }
 }

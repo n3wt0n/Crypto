@@ -74,6 +74,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="CRC32.cs" />
     <Compile Include="ClearData.cs" />
+    <Compile Include="Helpers\CRC32Helper.cs" />
     <Compile Include="Helpers\HMACMD5Helper.cs" />
     <Compile Include="Helpers\MD5Helper.cs" />
     <Compile Include="HMACMD5.cs" />

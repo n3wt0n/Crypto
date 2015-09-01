@@ -88,9 +88,11 @@ namespace DBTek.Crypto
                 throw new ArgumentException("Please specify the path of the output path", nameof(destFile));
 
             byte[] binput = File.ReadAllBytes(sourceFile);
-            TextWriter tw = new StreamWriter(destFile);
+            var tw = new StreamWriter(destFile);
             foreach (string l in EncodeBytes(binput))
+            {
                 tw.WriteLine(l);
+            }
             tw.Close();
         }
 

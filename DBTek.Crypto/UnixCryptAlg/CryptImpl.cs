@@ -110,14 +110,10 @@ namespace DBTek.Crypto.UnixCryptAlg
         {
             for(int i = 0; i < length; i++, str1++, str2++)
             {
-                if(str1.Value > str2.Value)
-                {
-                    return 1;
-                }
-                else if (str2.Value > str1.Value)
-                {
-                    return -1;
-                }
+                if(str1.Value > str2.Value)                
+                    return 1;                
+                else if (str2.Value > str1.Value)                
+                    return -1;                
             }
 
             return 0;
@@ -134,10 +130,8 @@ namespace DBTek.Crypto.UnixCryptAlg
             {
                 for (j = str2; j.Value != 0; j++)
                 {
-                    if (i.Value == j.Value)
-                    {
-                        return location;
-                    }
+                    if (i.Value == j.Value)                    
+                        return location;                    
                 }
             }
 
@@ -173,10 +167,8 @@ namespace DBTek.Crypto.UnixCryptAlg
 
             /* Find beginning of salt string.  The prefix should normally always
             be present.  Just in case it is not.  */
-            if (strncmp(md5_salt_prefix, salt, strlen(md5_salt_prefix)) == 0)
-            {
-                salt += strlen(md5_salt_prefix);
-            }
+            if (strncmp(md5_salt_prefix, salt, strlen(md5_salt_prefix)) == 0)            
+                salt += strlen(md5_salt_prefix);            
 
             salt_len = Math.Min(strcspn(salt, dollar_sign), 8);
             key_len = strlen(key);
@@ -298,10 +290,8 @@ namespace DBTek.Crypto.UnixCryptAlg
             cp = b64_from_24bit(alt_result[4], alt_result[10], alt_result[5], 4, cp, buflen, out buflen);
             cp = b64_from_24bit(0, 0, alt_result[11], 2, cp, buflen, out buflen);
 
-            if (buflen <= 0)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            if (buflen <= 0)            
+                throw new IndexOutOfRangeException();            
             else
                 cp.Value = 0;        /* Terminate the string.  */
 
@@ -871,10 +861,8 @@ namespace DBTek.Crypto.UnixCryptAlg
 
             for (i = 0; i < max; i++, buffer++)
             {
-                if (source[i] == 0)
-                {
-                    break;
-                }
+                if (source[i] == 0)                
+                    break;                
 
                 buffer.Value = source[i];
             }
