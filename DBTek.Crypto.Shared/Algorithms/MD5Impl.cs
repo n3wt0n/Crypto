@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace DBTek.Crypto.Hashers
+namespace DBTek.Crypto.Algorithms
 {
     /// <summary>
     /// Simple struct for the (a,b,c,d) which is used to compute the mesage digest.    

@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace DBTek.Crypto.Hashers
+namespace DBTek.Crypto.Algorithms
 {
-    internal class CRC32 : IDisposable
+    internal class CRC32Impl : IDisposable
     {
         uint[] table;
 
-        public CRC32()
+        public CRC32Impl()
         {
             uint poly = 0xedb88320;
             table = new uint[256];
