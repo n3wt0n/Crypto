@@ -3,7 +3,7 @@
 **Crypto** is a library to Encrypt/Decript and Hash files and strings
 
 
-###Implemented Algorithms: Hash###
+### Implemented Algorithms: Hash ###
 + CRC32
 + HMAC-MD5
 + MD5
@@ -12,7 +12,7 @@
 + Unix-SHA2-256
 + Unix-SHA2-512
 
-###Implemented Algorithms: Encode/Decode###
+### Implemented Algorithms: Encode/Decode ###
 + Base64
 + QuotedPrintable
 + Rijndael (AES)
@@ -20,7 +20,7 @@
 + UUEncode
 
 
-###Installation###
+### Installation ###
 The **Crypto** library is available on [NuGet](https://www.nuget.org/packages/DBTek.Crypto).
 Just search *DBTek.Crypto* in the **Package Manager GUI** or run the following command in the **Package Manager Console**:
 ```
@@ -28,11 +28,11 @@ Install-Package DBTek.Crypto
 ```
 
 
-###Usage###
+### Usage ###
 
 Refer to the [project documentation](https://github.com/n3wt0n/Crypto/wiki/Home) to find examples about how to use this library. 
 
 
-###Support###
+### Support ###
 
 If you encounter some issues trying this library, please let me know through the [Issues page](https://github.com/n3wt0n/Crypto/issues) and I'll fix the problem as soon as possible!
