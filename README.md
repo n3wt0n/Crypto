@@ -2,7 +2,6 @@
 
 **Crypto** is a library to Encrypt/Decript and Hash files and strings
 
-
 ### Implemented Algorithms: Hash ###
 + CRC32
 + HMAC-MD5
