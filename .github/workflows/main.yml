@@ -1,0 +1,24 @@
+name: Net Fx CI
+
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+    # checkout the repo
+    - uses: actions/checkout@master  
+    
+    # Install Nuget
+    - name: Install Nuget
+      run: curl https://dist.nuget.org/win-x86-commandline/v5.3.0/nuget.exe -o nuget.exe
+      
+    # Nuget restore
+    - name: Use NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+      run: nuget restore
+      
+    # dotnet msbuild 
+    - name: msBuild with dotnet
+      shell: pwsh
+      run: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe .\DBTek.Crypto.sln /t:rebuild /p:Configuration=Release
