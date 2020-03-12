@@ -24,10 +24,22 @@ jobs:
       uses: darenm/Setup-VSTest@v1
 
     - name: Restore NuGet packages
-      run: nuget restore DBTek.Crypto.sln
+      run: nuget restore DBTek.Crypto/DBTek.Crypto.csprj
 
-    - name: Build the Solution 
-      run: msbuild DBTek.Crypto.sln /p:Configuration=Release
+    - name: Build the Project 
+      run: msbuild DBTek.Crypto/DBTek.Crypto.csprj /p:Configuration=Release
+
+    - name: Restore NuGet packages
+      run: nuget restore DBTek.Crypto/DBTek.Crypto.csprj
+
+    - name: Build the Project 
+      run: msbuild DBTek.Crypto/DBTek.Crypto.csprj /p:Configuration=Release
+
+    - name: Restore NuGet packages for Test
+      run: nuget restore DBTek.Crypto/DBTek.Crypto.csprj
+
+    - name: Build the Test Project 
+      run: msbuild DBTek.Crypto.Test/DBTek.Crypto.Test.csprj
     
     - name: Execute Unit Tests
       run: vstest.console.exe **/*.Tests.dll
