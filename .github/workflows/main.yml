@@ -1,26 +1,33 @@
-name: Net Fx CI
+name: CI
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  build-and-deploy:
-    runs-on: windows-latest
-    steps:
+  Build:
+    name: Build
+    runs-on: [windows-latest]
 
-    # checkout the repo
-    - uses: actions/checkout@master  
+    steps:
+    - uses: actions/checkout@v2
+      
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
     
-    # Install Nuget
-    - name: Install Nuget
-      run: |
-           mkdir C:\NuGet
-           curl https://dist.nuget.org/win-x86-commandline/v5.3.0/nuget.exe -o  C:\NuGet\nuget.exe
-      
-    # Nuget restore
-    - name: Use NuGet to restore dependencies as well as project-specific tools that are specified in the project file
-      run:  C:\NuGet\nuget.exe restore .\DBTek.Crypto.sln
-      
-    # dotnet msbuild 
-    - name: msBuild with dotnet
-      shell: pwsh
-      run: C:\"Program Files (x86)"\"Microsoft Visual Studio"\2019\Enterprise\MSBuild\Current\Bin\msbuild.exe .\DBTek.Crypto.sln /t.\DBTek.Cryp:rebuild /p:Configuration=Release
+    - name: Setup VSTest.console.exe
+      uses: darenm/Setup-VSTest@v1
+
+    - name: Restore NuGet packages
+      run: nuget restore DBTek.Crypto.sln
+
+    - name: Build the Solution 
+      run: msbuild DBTek.Crypto.sln /p:Configuration=Release
+    
+    - name: Execute Unit Tests
+      run: vstest.console.exe **/*.Tests.dll
