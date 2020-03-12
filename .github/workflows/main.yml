@@ -27,13 +27,7 @@ jobs:
       run: nuget restore DBTek.Crypto/DBTek.Crypto.csproj
 
     - name: Build the Project 
-      run: msbuild DBTek.Crypto/DBTek.Crypto.csproj /p:Configuration=Release
-
-    - name: Restore NuGet packages
-      run: nuget restore DBTek.Crypto/DBTek.Crypto.csproj
-
-    - name: Build the Project 
-      run: msbuild DBTek.Crypto/DBTek.Crypto.csproj /p:Configuration=Release
+      run: msbuild DBTek.Crypto/DBTek.Crypto.csproj
 
     - name: Restore NuGet packages for Test
       run: nuget restore DBTek.Crypto/DBTek.Crypto.csproj
