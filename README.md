@@ -1,6 +1,6 @@
 # DBTek Crypto Utils
 
-**Crypto** is a library to Encrypt/Decript and Hash files and strings
+**Crypto** is a library to Encrypt/Decrypt and Hash files and strings
 
 ### Implemented Algorithms: Hash
 
@@ -31,8 +31,7 @@ Install-Package DBTek.Crypto
 
 ### Usage
 
-Refer to the [project documentation](https://github.com/n3wt0n/Crypto/wiki/Home) to find examples about how to use this library. 
-
+Refer to the [project documentation](https://github.com/n3wt0n/Crypto/wiki/Home) to find examples about how to use this library.
 
 ### Support
 
