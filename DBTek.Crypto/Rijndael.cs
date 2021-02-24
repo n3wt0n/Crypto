@@ -13,8 +13,8 @@ namespace DBTek.Crypto
        
         #region Config
 
-        private readonly string _psw = "qiKJFd5UFMGUQUc";
-        private readonly string _IV = "wALM1JMvr7azxKQ";
+        private readonly string _psw = "jkhgbI&^gKJHi6gi";
+        private readonly string _IV = ",mhGOUu7t(*&oilujb";
 
         #endregion
 
