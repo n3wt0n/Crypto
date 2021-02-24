@@ -1,4 +1,4 @@
-# DBTek Crypto Utils
+# DBTek Crypto Utils {PUT NEW TITLE HERE}
 
 **Crypto** is a library to Encrypt/Decrypt and Hash files and strings
 
@@ -11,6 +11,8 @@
 + Unix-MD5
 + Unix-SHA2-256
 + Unix-SHA2-512
++ AAA
++ BBB
 
 ### Implemented Algorithms: Encode/Decode
 
